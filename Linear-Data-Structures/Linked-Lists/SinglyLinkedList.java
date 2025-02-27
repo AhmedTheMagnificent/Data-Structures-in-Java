@@ -43,6 +43,22 @@ public class SinglyLinkedList{
 
     }
 
+    public void insertAt(int n, int val){
+        int pos = 0;
+        if(n == 0){
+            insertAtBeginning(val);
+        }
+        else{
+            Node nodeptr = head;
+            Node newNode = new Node(val);
+            while(pos < n - 1){
+                nodeptr = nodeptr.next;
+            }
+            newNode.next = nodeptr.next;
+            nodeptr.next = newNode;
+        }
+    }
+
     public void reverse(){
         Node prev = null;
         Node next = null;
@@ -69,8 +85,8 @@ public class SinglyLinkedList{
         L1.display();
         L1.insertAtEnd(3);
         L1.insertAtEnd(4);
-        // L1.insertAt(4, 99);
-        // L1.insertAt(8, 1000);
+        L1.insertAt(4, 99);
+        L1.insertAt(8, 1000);
         L1.display();
         // L1.reverse();
         L1.display();
